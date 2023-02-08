@@ -3,11 +3,15 @@ function Card(props) {
     // function Card({img, name, desc}) {
 // 
     // console.log(props)
-
+    // const id =props.id
+    // const star = useSelector((state) => state.Star.Star)
+    // const filterres = star.filter(item => item.id == id);
+    // const isFav= filterres.length > 0 ? "solid" : "regular";
 
     return(
         <>
             <div className="card text-bg-primary " style={{width: "18rem"}}>
+                
                 <img  src={props.img} className="card-img-top" alt="..." />
                 {/* <img src={img} className="card-img-top" alt="..." /> */}
                 <div className="card-body">
@@ -19,6 +23,7 @@ function Card(props) {
                 </div>
                 <div className="d-flex justify-content-center">
                 </div>
+                {/* <i className={fa-${isFav} fa-3x fa-star}> */}
 
             </div>
         

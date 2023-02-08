@@ -61,6 +61,7 @@ function Movies(){
        
     }
     const star = useSelector((state) => state.Star.Star) // true
+     
     const dispath=useDispatch()
     console.log(star)
     const fav =(movies)=>{
@@ -79,8 +80,8 @@ function Movies(){
                 {moviecarries.map((movies, index) => {
                  return (
                     <div className="col-lg-3 col-md-6 position-relative " key={index}>
-                   <Card key={index} img={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} desc={movies.original_title} name={movies.title} />
-                   <div onClick={()=>fav(movies)} className="position-absolute top-0 "><i  className="fa-regular fa-star fa-2x "/></div>
+                   <Card key={index} id={movies.id} img={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} desc={movies.original_title} name={movies.title} />
+                   <div onClick={()=>fav(movies)} className="position-absolute top-0 "><i  className="fa-solid fa-star fa-2x "/></div>
                   <Link to={`/about/${movies.id}`}> <div className=" w-75  d-flex justify-content-center  "> <button className="btn btn-primary"> Details  </button> </div>  </Link>
                     </div>
                  )
