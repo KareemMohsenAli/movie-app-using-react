@@ -1,6 +1,5 @@
 # Getting Started with Create React App
 
-[Uploading Screencast from 02-08-2023 04:31:44 PM.webm…]()
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
