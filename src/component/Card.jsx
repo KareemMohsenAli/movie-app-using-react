@@ -1,16 +1,9 @@
-import { useDispatch, useSelector } from "react-redux"
-import { changeStar } from "../store/action/Star"
+
 function Card(props) {
     // function Card({img, name, desc}) {
 // 
     // console.log(props)
-    const star = useSelector((state) => state.Star.Star) // true
-    const dispath=useDispatch()
-    const fav =(e)=>{
-        // console.log(e.target.className)
-        dispath(changeStar(e))
-        e.target.className=`fa-solid fa-2x text-warning fa-regular fa-star position-absolute`
-    }
+
 
     return(
         <>
@@ -25,7 +18,6 @@ function Card(props) {
                     {/* <p className="card-text"> {desc} </p> */}
                 </div>
                 <div className="d-flex justify-content-center">
-                <i onClick={()=>fav()} className="fa-regular fa-star fa-2x "/>
                 </div>
 
             </div>

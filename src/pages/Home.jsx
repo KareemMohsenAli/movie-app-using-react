@@ -2,14 +2,19 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import Card from "../component/Card"
 import { Link } from "react-router-dom"
+import Show from "./Show"
+import { useDispatch, useSelector } from "react-redux"
+import { changeStar } from "../store/action/Star"
 
 
 function Movies(){
     const [moviecarries, setComponies] = useState([])
 
+
     const [keyword, setKeyword] = useState("1")
     const[search,setsearch]=useState("a")
 
+    // pagenation
     useEffect(() => {
         axios.get("https://api.themoviedb.org/3/movie/popular", {
             params: {
@@ -21,7 +26,7 @@ function Movies(){
         .catch((err) => console.log(err))
     }, [keyword])
 
-
+    //search
     useEffect(() => {
         axios.get("https://api.themoviedb.org/3/search/movie", {
             params: {
@@ -55,6 +60,14 @@ function Movies(){
        console.log(setsearch(e.target.value))
        
     }
+    const star = useSelector((state) => state.Star.Star) // true
+    const dispath=useDispatch()
+    console.log(star)
+    const fav =(movies)=>{
+        // console.log(e.target.className)
+        dispath(changeStar(movies))
+        // e.target.className=`fa-solid fa-2x text-warning fa-regular fa-star position-absolute`
+    }
     // const[string,setsearch]=useState("a")
 
     return(
@@ -65,9 +78,10 @@ function Movies(){
                 
                 {moviecarries.map((movies, index) => {
                  return (
-                    <div className="col-lg-3 " key={index}>
-                   <Link to={`/about/${movies.id}`}><Card key={index} img={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} desc={movies.original_title} name={movies.title} />
-                   </Link>
+                    <div className="col-lg-3 col-md-6 position-relative " key={index}>
+                   <Card key={index} img={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} desc={movies.original_title} name={movies.title} />
+                   <div onClick={()=>fav(movies)} className="position-absolute top-0 "><i  className="fa-regular fa-star fa-2x "/></div>
+                  <Link to={`/about/${movies.id}`}> <div className=" w-75  d-flex justify-content-center  "> <button className="btn btn-primary"> Details  </button> </div>  </Link>
                     </div>
                  )
                 //  <h1 key={index}> {company.name} </h1>

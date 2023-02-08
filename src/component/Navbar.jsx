@@ -27,6 +27,10 @@ function Navbar(){
                 <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/">Home</Link>
                 </li>
+                <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/Favorite">Favorite</Link>
+                </li>
+
                 <i class="fa-solid fa-cart-shopping mt-3"></i><div className="mt-2 " >{starnav.length}</div>
                 {/* <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/about">About</Link>
