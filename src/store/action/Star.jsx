@@ -1,6 +1,14 @@
 export const changeStar = (payload) => {
     return {
-        type: "CHANGESTAR",
+        type: "ADDSTAR",
+        payload
+    }
+}
+
+
+export const deleteStar = (payload) => {
+    return {
+        type: "REMOVESTAR",
         payload
     }
 }
