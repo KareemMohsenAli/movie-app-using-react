@@ -24,7 +24,7 @@ function Cardshow(props) {
 
           <p className="card-text"> {props.desc} </p>
           {/* <p className="card-text"> {desc} </p> */}
-          <button onClick={deletedHander}>Delete</button>
+          <button className="btn btn-danger" onClick={deletedHander}>Delete</button>
         </div>
       </div>
     </>

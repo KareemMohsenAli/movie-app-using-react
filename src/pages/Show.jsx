@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Cardshow from '../component/Cardshow'
+import Card from '../component/Card'
+
 
 export default function Show(props) {
 
