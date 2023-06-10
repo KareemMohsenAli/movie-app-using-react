@@ -6,6 +6,7 @@ import { useState } from "react"
 import { changeStar, deleteStar } from "../store/action/Star"
 
 function Favorite() {
+    const [displayButton,setDisplayButton]=useState(true)
     const arrayofstar = useSelector((state) => state.Star.Star) 
     const[deletehand,setDelete]=useState([])
     const disptach=useDispatch()
@@ -30,16 +31,16 @@ function Favorite() {
         disptach(deleteStar(id))
         // console.log(deletehand,'aa')
     }
-    const newdata = arrayofstar.filter((item) => !deletehand.includes(item.id));
+    // const newdata = arrayofstar.filter((item) => !deletehand.includes(item.id));
     // disptach(changeStar(newdata))
     return(
         <div className="container-fluid bg-black ">
             <div className="row">
                 
-                {newdata.map((movies, index) => {
+                {arrayofstar.map((movies, index) => {
                  return (
                     <div className="col-lg-3 col-md-6 position-relative " key={index}>
-                   <Cardshow onclick={DeleteChangeHandler} key={index} img={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} desc={movies.original_title} name={movies.title} id={movies.id} />
+                   <Cardshow displayDelete={displayButton} onclick={DeleteChangeHandler} key={index} img={`https://image.tmdb.org/t/p/w500/${movies.poster_path}`} desc={movies.original_title} name={movies.title} id={movies.id} />
                     </div>
                  )
                 //  <h1 key={index}> {company.name} </h1>
